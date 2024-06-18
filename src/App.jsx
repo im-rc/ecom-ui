@@ -4,7 +4,7 @@ import Products from "./pages/Products";
 function App() {
   return (
     <>
-      <div>Uni world omniport ecommerce app</div>
+      <h1>Ecom App</h1>
       <Products />
     </>
   );

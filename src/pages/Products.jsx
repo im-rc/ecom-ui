@@ -1,3 +1,5 @@
+import Product from "../components/Product";
+
 function Products() {
   const productsList = [
     {
@@ -40,13 +42,9 @@ function Products() {
 
   return (
     <>
-      <div>List of products</div>
+      <h2>List of products</h2>
       {productsList.map((product) => {
-        return (
-          <ul>
-            <li key={product.id}>{product.name}</li>
-          </ul>
-        );
+        return <Product key={product.id} product={product} />;
       })}
     </>
   );
