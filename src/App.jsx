@@ -1,11 +1,14 @@
 //import "./App.css";
-import Products from "./pages/Products";
+import { Link, Outlet } from "react-router-dom";
+import Categories from "./pages/Categories";
 
 function App() {
   return (
     <>
       <h1>Ecom App</h1>
-      <Products />
+      <Categories />
+      <Link to={`cart`}>Cart</Link>
+      <Outlet />
     </>
   );
 }
