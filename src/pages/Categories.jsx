@@ -1,18 +1,36 @@
 import { useState } from "react";
 import Product from "../components/Product";
 import productsList from "../data/productsList.json";
+import { useReducer } from "react";
+import { cartReducer, initialState } from "../cartReducer";
+import Cart from "../components/Cart";
 
 function Products({ category }) {
   const products = productsList.filter(
     (product) => product.category === category
   );
 
+  const [cartState, dispatch] = useReducer(cartReducer, initialState);
+
+  const addItemToCart = (item) => {
+    console.log(item);
+    dispatch({ type: "ADD_ITEM", payload: item });
+  };
   return (
     <>
       <div>
         {products.map((product) => {
-          return <Product key={product.id} product={product} />;
+          return (
+            <Product
+              key={product.id}
+              product={product}
+              addItemToCart={addItemToCart}
+            />
+          );
         })}
+        <div>
+          <Cart cartState={cartState}></Cart>
+        </div>
       </div>
     </>
   );
