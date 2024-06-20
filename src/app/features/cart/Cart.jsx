@@ -1,28 +1,32 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import "./Cart.css";
 
-function Cart({ cartState }) {
-  // const clearCart = () => {
-  //   dispatch({ type: "CLEAR_CART" });
-  // };
+function Cart() {
+  const cart = useSelector((state) => state.cart);
+  const { items, totalPrice, totalQuantity } = cart;
+
   return (
     <div>
       <div>
-        <h3>Cart Items:</h3>
+        <h3>Cart Items: {totalQuantity}</h3>
         <ul>
-          {cartState &&
-            cartState.cartItems.map((item) => (
+          {items &&
+            items.map((item) => (
               <li key={item.id}>
-                {item.name} - ${item.price} x {item.quantity}{" "}
+                {item.name} - ${item.price} - id:{item.id}
                 {/* <button onClick={() => removeItemFromCart(item)}>Remove</button> */}
               </li>
             ))}
         </ul>
-        <p>Total Items: {cartState && cartState.totalItems}</p>
-        <p>Total Amount: ${cartState && cartState.totalAmount}</p>
+        <p>Total Amount: ${totalPrice}</p>
         {/* <button onClick={clearCart}>Clear Cart</button> */}
       </div>
-
-      <Link to={`checkout`}>proceed to checkout</Link>
+      <div className="button-89">
+        <Link className="link" to={`checkout`}>
+          Checkout
+        </Link>
+      </div>
     </div>
   );
 }

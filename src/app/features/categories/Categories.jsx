@@ -1,28 +1,6 @@
 import { useState } from "react";
-import Product from "../products/Product";
-import productsList from "../../data/productsList.json";
-
-function Products({ category }) {
-  const products = productsList.filter(
-    (product) => product.category === category
-  );
-
-  return (
-    <>
-      <div>
-        {products.map((product) => {
-          return (
-            <Product
-              key={product.id}
-              product={product}
-              // addItemToCart={addItemToCart}
-            />
-          );
-        })}
-      </div>
-    </>
-  );
-}
+import Products from "../products/Products";
+import "./Categories.css";
 
 const Categories = () => {
   const categories = ["Chairs", "Table", "Top"];
@@ -32,7 +10,11 @@ const Categories = () => {
       <div>
         <h2>Categories</h2>
         {categories.map((category, index) => (
-          <button onClick={() => setSelectCategory(category)} key={index}>
+          <button
+            className="button-80"
+            onClick={() => setSelectCategory(category)}
+            key={index}
+          >
             {category}
           </button>
         ))}

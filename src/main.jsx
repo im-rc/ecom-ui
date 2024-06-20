@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./app/App.jsx";
+import Checkout from "./app/features/checkout/Checkout.jsx";
 //import './index.css'
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -11,6 +12,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+  },
+  {
+    path: "checkout",
+    element: <Checkout />,
   },
 ]);
 
