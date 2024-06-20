@@ -8,20 +8,26 @@ function Cart() {
   const { items, totalPrice, totalQuantity } = cart;
 
   return (
-    <div>
+    <div className="cart">
       <div>
-        <h3>
-          <FiShoppingCart /> Cart Items: {totalQuantity}
-        </h3>
-        <ul>
-          {items &&
-            items.map((item) => (
-              <li key={item.id}>
-                {item.name} - ${item.price}
-                {/* <button onClick={() => removeItemFromCart(item)}>Remove</button> */}
-              </li>
-            ))}
-        </ul>
+        {!totalQuantity ? (
+          <h3>
+            <FiShoppingCart /> shopping cart is empty
+          </h3>
+        ) : (
+          <h3>
+            {" "}
+            <FiShoppingCart /> Cart Items: ({totalQuantity}){" "}
+          </h3>
+        )}
+
+        {items &&
+          items.map((item) => (
+            <div className="cart-item" key={item.id}>
+              {item.name} - ${item.price}
+            </div>
+          ))}
+
         {items.length ? (
           <p style={{ fontSize: "20px" }}>Total Amount: ${totalPrice}</p>
         ) : (

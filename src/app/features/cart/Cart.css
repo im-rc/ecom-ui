@@ -1,5 +1,8 @@
 
-
+.cart{
+  margin-top: 50px;
+  padding: 10px ;
+}
 /* CSS */
 .button-89 {
   --b: 3px;   /* border thickness */
@@ -18,7 +21,7 @@
   font-size: 16px;
   width: 70px;
   border: 0;
-
+  
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -100,13 +103,13 @@
   color: #FFFFFF;
 }
 
-ul {
-  list-style-type: none;
-}
 
-ul li {
+div.cart-item {
   font-size: 20px;
-  padding: 5px;
-  color: black;
+  padding: 5px 10px;
+  color: white;
   margin-bottom: 5px;
+  background-color: cadetblue;
+  width: 300px;
+  border-radius: 5px;
 }

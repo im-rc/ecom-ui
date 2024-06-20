@@ -11,6 +11,7 @@ function Checkout() {
       <Header />
       <h2>
         <IoArrowBackOutline
+          style={{ cursor: "pointer" }}
           onClick={() => {
             navigate("/");
           }}
