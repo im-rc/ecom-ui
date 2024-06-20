@@ -1,8 +1,5 @@
 //import "./App.css";
-import { Link, Outlet } from "react-router-dom";
-import Categories from "./pages/Categories";
-import Cart from "./components/Cart";
-
+import Categories from "./features/categories/Categories";
 function App() {
   return (
     <>
