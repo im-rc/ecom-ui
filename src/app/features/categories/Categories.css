@@ -25,6 +25,7 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  margin-left: 10px;
 }
 
 .button-80:not(:disabled):hover {

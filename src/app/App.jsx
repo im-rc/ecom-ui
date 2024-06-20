@@ -6,11 +6,11 @@ function App() {
   return (
     <>
       <Header />
-      <div class="row">
-        <div class="column">
+      <div className="row">
+        <div className="column">
           <Categories />
         </div>
-        <div class="column">
+        <div className="column">
           <Cart />
         </div>
       </div>

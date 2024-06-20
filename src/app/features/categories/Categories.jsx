@@ -11,11 +11,18 @@ const Categories = () => {
         <h2>Categories</h2>
         {categories.map((category, index) => (
           <button
+            style={
+              category == selectedCategory
+                ? { backgroundColor: "black", color: "white" }
+                : { backgroundColor: "white" }
+            }
             className="button-80"
             onClick={() => setSelectCategory(category)}
             key={index}
           >
-            {category}
+            {category == "Table" && "Tables"}
+            {category == "Top" && "Tops"}
+            {category == "Chairs" && "Chairs"}
           </button>
         ))}
       </div>

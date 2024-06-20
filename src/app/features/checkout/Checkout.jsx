@@ -1,19 +1,23 @@
 import Header from "../header/Header";
+import UserForm from "./UserForm";
+import { IoArrowBackOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 function Checkout() {
   //checkout page that collects essential user details.
+  const navigate = useNavigate();
   return (
     <div>
       <Header />
-      <h2>Checkout Page</h2>
-      <p>user information</p>
-      <input placeholder="name" />
-      <br />
-      <br />
-      <input placeholder="email" />
-      <br />
-      <br />
-      <button>place your order</button>
+      <h2>
+        <IoArrowBackOutline
+          onClick={() => {
+            navigate("/");
+          }}
+        />{" "}
+        Checkout
+      </h2>
+      <UserForm />
     </div>
   );
 }

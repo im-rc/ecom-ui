@@ -1,6 +1,7 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Cart.css";
+import { FiShoppingCart } from "react-icons/fi";
 
 function Cart() {
   const cart = useSelector((state) => state.cart);
@@ -9,24 +10,33 @@ function Cart() {
   return (
     <div>
       <div>
-        <h3>Cart Items: {totalQuantity}</h3>
+        <h3>
+          <FiShoppingCart /> Cart Items: {totalQuantity}
+        </h3>
         <ul>
           {items &&
             items.map((item) => (
               <li key={item.id}>
-                {item.name} - ${item.price} - id:{item.id}
+                {item.name} - ${item.price}
                 {/* <button onClick={() => removeItemFromCart(item)}>Remove</button> */}
               </li>
             ))}
         </ul>
-        <p>Total Amount: ${totalPrice}</p>
-        {/* <button onClick={clearCart}>Clear Cart</button> */}
+        {items.length ? (
+          <p style={{ fontSize: "20px" }}>Total Amount: ${totalPrice}</p>
+        ) : (
+          " "
+        )}
       </div>
-      <div className="button-89">
-        <Link className="link" to={`checkout`}>
-          Checkout
-        </Link>
-      </div>
+      {items.length ? (
+        <div className="button-89">
+          <Link className="link" to={`checkout`}>
+            Checkout
+          </Link>
+        </div>
+      ) : (
+        " "
+      )}
     </div>
   );
 }
